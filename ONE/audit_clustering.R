@@ -86,36 +86,49 @@ str(df)
 # k-means
 library(stats)
 
-clusters <- kmeans(df, 7)
+clusters <- kmeans(df, 3)
 
-# examine
+# examine (1 - )
 clusters$centers
 clusters$size
 
 df$Cluster_id <- clusters$cluster
 
-
 # visualize
-
 ggplot(aes(x = Age, y = Income, color = as.factor(Cluster_id), 
            shape = as.factor(Female)), data = df) + 
           geom_jitter(size = 2)
   
+Cluster_ID <- df$Cluster_id
+df$Cluster_id <- NULL
 
 # split test -train
 train <- df[1:1400, ]
 test <- df[1401:1899, ]
 
+# unneeded - tested though
 y_train <- occupation[1:1400]
 y_test <- occupation[1401:1899]
 
+y_train_cluster <- Cluster_ID[1:1400]
+y_test_cluster <- Cluster_ID[1401:1899]
+
 # k-nn predict occupation
 library(class)
-library(gmodels)
+library(gmodels) 
 
-pred <- knn(train = train, test = test, cl = y_train, k = 5)
 
-CrossTable(x = y_test, y = pred, prop.chisq = FALSE)$prop.r
+pred <- knn(train = train, test = test, cl = y_train_cluster, k = 5)
 
-head(pred, 8)
-head(y_test, 8)
+CrossTable(x = y_test_cluster, y = pred, prop.chisq = FALSE)$prop.r
+
+# test to occupation
+df$Occupation <- occupation
+df$cluster_id <- Cluster_ID
+
+library(plyr)
+count(df, c('Occupation','Cluster_ID'))
+count(df, c('Cluster_ID','Occupation'))
+
+aggregate(data = df, Age ~ Cluster_ID, mean)
+aggregate(data = df, Income ~ Cluster_ID, mean)
