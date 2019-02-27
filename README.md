@@ -20,4 +20,6 @@ RESULTS:
 	- Using a k = sqrt(col_len) results in a 'decent' predictor for k-nn.
 	- Too many occupation possibilities and results are overall weak.
 	- On average accurate predicting an occupation at around ~25%
+
+TIME TAKEN: 52 minutes
 ```
