@@ -22,9 +22,32 @@ RESULTS:
 	- Using a k = 5 results in a great predictor for cluster classification
 		-> 100% accuracy predicting cluster in test data. (too accurate? why?)
 	- Clusters very weakly relate to occupations. Not a success
-	- Clusters do strongly correlate to age and income though. 
+	- Clusters do strongly correlate to age and income though 
 
 OVERALL: Semi-supervised learning via clustering demographic data fails to predict occupation.
 
 TIME TAKEN: 62 minutes
+```
+
+
+#### TWO - EDA w/ Matplotlib and Seaborn
+```
+GOAL: How many insights can I discover from an hour of eda with matplotlib/seaborn?
+
+METHOD: 
+	- Data obtained from Kaggle dataset: 'Pokemon with Stats'
+	- I typically run eda in R so wanted to get practice in Py
+	- Pull in data and drop incomplete rows
+	- Get descriptive stats of data
+	- Run univariate analysis of data
+	- Run bivariate analysis of data
+	- Dive deeper into initial insights with multivariate analysis.
+	- What are the most interesting trends to visualize more deeply?
+	
+RESULTS: 
+	- Project not conducted yet. Expected 4.27
+
+OVERALL: TBD
+
+TIME TAKEN: 0 minutes
 ```
