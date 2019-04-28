@@ -95,7 +95,9 @@ sns.relplot(x="Attack", y="Defense", hue="Speed", style = "Type 1", data=df[df['
 
 sns.relplot(x="Attack", y="Total", kind="line", ci="sd", data=df)
 
+# ignore last one
 sns.relplot(x="Attack", y="Total", kind="line", hue = "Type 1", ci="sd", data=df[df['Type 1'].isin(query_types)])
+
 
 
 
