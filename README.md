@@ -45,9 +45,15 @@ METHOD:
 	- What are the most interesting trends to visualize more deeply?
 	
 RESULTS: 
-	- Project not conducted yet. Expected 4.27
+	- Learned how to subplot in matplotlib
+	- Learned about querying in pandas
+	- Linear Relationships between most card stats
+	- Indicating different power levels rather than trade-offs between stats
+	- Water type seems to be on the fridges suggesting more volatile stats exchanges
+	- Grass seems to be more consistent yet average
+	- Stat Totals about evenly distributed between generations
 
-OVERALL: TBD
+OVERALL: Seaborn is a great tool for making quick and beautiful charts when conducting EDA.
 
-TIME TAKEN: 0 minutes
+TIME TAKEN: 76 minutes
 ```
