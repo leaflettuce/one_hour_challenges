@@ -59,10 +59,43 @@ sns.jointplot(x='Attack', y='Defense', data=df)
 sns.jointplot(x='HP', y='Defense', data=df, kind = 'hex')
 sns.jointplot(x='Speed', y='Attack', data=df, kind = 'kde')
 
+# facets
+g = sns.FacetGrid(df, row="Generation", col="dual_type", margin_titles=True)
+g.map(sns.regplot, "Attack", "Defense", color=".3", fit_reg=False, x_jitter=.1);
+
 #pair plot
 df_subset = df.drop(['Name', 'Type 1', 'Type 2', 'Total', 'Generation', 'Legendary', 'dual_type'], axis = 1)
 pp = sns.PairGrid(df_subset)
 pp.map_diag(sns.kdeplot)
 pp.map_offdiag(sns.kdeplot, n_levels = 6)
 
+# categorical bivar
+sns.catplot(x = 'Generation', y = 'Total', kind = 'swarm', data = df)
+
+fig, axes = plt.subplots(nrows=2, ncols=1)
+sns.catplot(x="Type 1", y = "Total", kind = 'swarm', data = df, ax = axes[0])
+sns.catplot(x="Type 1", y="Total", kind="swarm",
+            data=df.query("Generation == 1"), ax=axes[1]);
+
+      
 # Multivariate plots
+sns.catplot(x = "Generation", y = "Total", hue = "dual_type", kind = 'violin', split = True, data = df)
+
+#sns.catplot(x="Generation", y="Total", hue="dual_type",
+#            col="Type 1", row = 'Type 2', aspect=.6,
+#            kind="swarm", data=df);
+
+sns.relplot(x="Attack", y="Defense", hue="Generation", data=df);
+
+sns.relplot(x="HP", y="Defense", hue="dual_type", style="Generation", data=df)
+sns.relplot(x="Attack", y="Speed", hue="dual_type", style="Generation", data=df)
+
+query_types = ['Grass', 'Fire', 'Water']
+sns.relplot(x="Attack", y="Defense", hue="Speed", style = "Type 1", data=df[df['Type 1'].isin(query_types)])
+
+sns.relplot(x="Attack", y="Total", kind="line", ci="sd", data=df)
+
+sns.relplot(x="Attack", y="Total", kind="line", hue = "Type 1", ci="sd", data=df[df['Type 1'].isin(query_types)])
+
+
+
