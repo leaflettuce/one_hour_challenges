@@ -49,9 +49,9 @@ RESULTS:
 	- Learned about querying in pandas
 	- Linear Relationships between most card stats
 	- Indicating different power levels rather than trade-offs between stats
-	- Water type seems to be on the fridges suggesting more volatile stats exchanges
-	- Grass seems to be more consistent yet average
-	- Stat Totals about evenly distributed between generations
+	- Water type seems to be on the fringes suggesting more volatile stats exchanges
+	- Grass types seem to be more consistent yet average
+	- Stat totals about evenly distributed between generations
 
 OVERALL: Seaborn is a great tool for making quick and beautiful charts when conducting EDA.
 
