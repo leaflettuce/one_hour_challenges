@@ -57,3 +57,27 @@ OVERALL: Seaborn is a great tool for making quick and beautiful charts when cond
 
 TIME TAKEN: 76 minutes
 ```
+
+
+
+#### THREE - Sentiment Analysis with word2vec
+```
+GOAL: Can sentiment analysis determine any underlying trends or patterns in wine reviews?
+
+METHOD: 
+	- Data obtained from Kaggle dataset: 'Wine Reviews'
+	- Get some practice with NLP and learn to apply word2vec 
+	- Pull in data and drop incomplete rows
+	- subset into positive and negative ratings for base-line segmentations
+	- Apply word2vec
+	- Cluster into grouping
+	- Attempt sentiment analysis on the review text
+	- Are there any underlying trends for wine reviews/ratings?
+	
+RESULTS: 
+	- TBD
+
+OVERALL: TBD
+
+TIME TAKEN: TBD
+```
