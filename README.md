@@ -60,19 +60,38 @@ TIME TAKEN: 76 minutes
 
 
 
-#### THREE - Sentiment Analysis with word2vec
+#### THREE - Recommender System using TF-IDF
 ```
-GOAL: Can sentiment analysis determine any underlying trends or patterns in wine reviews?
+GOAL: Can we suggest similar wines given an input wine?
+
+METHOD: 
+	- Data obtained from Kaggle dataset: 'Wine Reviews'
+	- Get some practice with NLP and create a recommender system
+	- Pull in data and drop incomplete rows
+	- Text preprocessing
+	- Cosine distance similarity function
+	- Suggest top 5 based on input
+	
+RESULTS: 
+	- TBD
+
+OVERALL: TBD
+
+TIME TAKEN: TBD
+```
+
+
+#### FOUR - Identifying Similarity with Word2vec
+```
+GOAL: Can we map out similar wine describers in a vector space to highlight trends in flavors? 
 
 METHOD: 
 	- Data obtained from Kaggle dataset: 'Wine Reviews'
 	- Get some practice with NLP and learn to apply word2vec 
 	- Pull in data and drop incomplete rows
-	- subset into positive and negative ratings for base-line segmentations
-	- Apply word2vec
-	- Cluster into grouping
-	- Attempt sentiment analysis on the review text
-	- Are there any underlying trends for wine reviews/ratings?
+	- Text preprocessing
+	- Cosine distance similarity function
+	- Map out in vector space
 	
 RESULTS: 
 	- TBD

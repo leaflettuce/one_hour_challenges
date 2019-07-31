@@ -33,3 +33,8 @@ df.isnull().sum(axis = 0)
 df = df[np.isfinite(df['price'])]
 df = df[np.isfinite(df['points'])]
 
+# test description
+df.iloc[0,1]
+
+
+
