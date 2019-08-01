@@ -62,36 +62,41 @@ TIME TAKEN: 76 minutes
 
 #### THREE - Recommender System using TF-IDF
 ```
-GOAL: Can we suggest similar wines given an input wine?
+GOAL: Can I suggest similar wines given an input wine?
 
 METHOD: 
 	- Data obtained from Kaggle dataset: 'Wine Reviews'
 	- Get some practice with NLP and create a recommender system
 	- Pull in data and drop incomplete rows
 	- Text preprocessing
+	- TF_IDF algorithm
 	- Cosine distance similarity function
-	- Suggest top 5 based on input
+	- Suggest top 10 based on input
 	
 RESULTS: 
-	- TBD
+	- Recommendation wines that seem appropriate!
+	- Description or original input and suggested are very similar
+	- Indicting a Rec Sys which is working as expected.
 
-OVERALL: TBD
+OVERALL: Scikit-Learn's TF-IDF Vectorizer makes forming a blunt wine Rec Sys easy to do on tasting notes.
 
-TIME TAKEN: TBD
+TIME TAKEN: 95 mins
 ```
 
 
-#### FOUR - Identifying Similarity with Word2vec
+#### FOUR - Recommender System and Similarity Visualization with Word2Vec
 ```
-GOAL: Can we map out similar wine describers in a vector space to highlight trends in flavors? 
+GOAL: Can I map out similar wines in a vector space to identify similar tastes and recommend new wines with? 
 
 METHOD: 
 	- Data obtained from Kaggle dataset: 'Wine Reviews'
 	- Get some practice with NLP and learn to apply word2vec 
 	- Pull in data and drop incomplete rows
 	- Text preprocessing
-	- Cosine distance similarity function
+	- Apply Word2Vec
 	- Map out in vector space
+	- Avg out wine description to place them on vector space
+	- take given description input and recommend a wine based on it
 	
 RESULTS: 
 	- TBD
