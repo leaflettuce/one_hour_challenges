@@ -110,43 +110,93 @@ plt.scatter(X_tsne[:, 0], X_tsne[:, 1], s=3, cmap='Spectral')
 plt.title('Wine Review Vocab Scatter (t-sne)')
 
 ###############
-# Recommender #
+# SET UP REC  #
 ###############
  # set into ine df
 df_used = df[0:30000]
 
+# create place holders
+df_used['tsne_x'] = 0
+df_used['tsne_y'] = 0
+vector = []
+i = 0
+loc = -1
 
-# takes in list and returns reduced vectors
-def get_average_vectors(df_used = df_used):
-     # create place holders
-    df_used['tsne_x'] = 0
-    df_used['tsne_y'] = 0
-    vector = []
-    i = 0
-    loc = -1
-
-    for i in tqdm(desc_list):
-        loc += 1
+for i in tqdm(desc_list):
+    loc += 1
+    try:
+        vector.append(model.wv[i])
+    except KeyError:
         try:
-            vector.append(model.wv[i])
+            df_used = df_used.drop(df.index[loc])
         except KeyError:
-            try:
-                df_used = df_used.drop(df.index[loc])
-            except KeyError:
-                break
+            break
    
-    # set df_used to proper len
-    df_used = df_used[0:len(vector)]
-    
-    # loop through all vectors and average out into df vars
-    for i in tqdm(range(0, len(vector))):
-        vec_tsne = tsne.fit_transform(vector[i])
-            # set to df
-        df_used.iloc[i, 16] = np.mean(vec_tsne[:, 0])
-        df_used.iloc[i, 17] = np.mean(vec_tsne[:, 1])
-    
-    return
+# set df_used to proper len
+# df_used = df_used[0:len(vector)]
+
+# loop through all vectors and average out into df vars
+for i in tqdm(range(1, len(vector))):
+    vec_tsne = tsne.fit_transform(vector[i])
+        # set to df
+    df_used.iloc[i, 14] = np.mean(vec_tsne[:, 0])
+    df_used.iloc[i, 15] = np.mean(vec_tsne[:, 1])
 
 
-# get vectors of wine reviews
-get_average_vectors()
+#######################
+# RECOMMENDER FINALLY #
+#######################
+    
+    # for testing
+df_used = df_used[0:6454]
+wines = df_used[["title", "description"]]
+
+# create wine-ID and wine-description dictionary
+wines_dict = wines.groupby('title')['description'].apply(list).to_dict()
+
+# get similar wines    
+def similar_products(input_desc, n = 6):
+    # extract most similar products for the input vector
+    #input_desc = input_desc.split(' ')
+    ms = model.similar_by_vector(input_desc, topn= n+1)[1:]
+
+    # extract name and similarity score of the similar products
+    new_ms = []
+    for m in ms:
+        for i,j in wines_dict.items():
+            if m[0] in str(j):
+                new_ms.append(i)
+    
+    return new_ms[0:10]     
+
+similar_products('fruity')
+
+# testing
+
+def get_recommendations(test_input, df_used = df_used):
+    test_split = test_input.split(' ')
+    
+    test_m = model.wv[test_split]
+    test_tsne = tsne.fit_transform(test_m)
+    
+    test_x = np.mean(test_tsne[:, 0])
+    test_y = np.mean(test_tsne[:, 1])
+    
+    df_results = {}
+    for i in range (0, len(df_used)):
+        wine_x = df_used.iloc[i, 14]
+        wine_y = df_used.iloc[i, 15]
+        X = test_x - wine_x
+        Y = test_y - wine_y
+        distance = np.sqrt((X*X) + (Y*Y))
+        df_results[df_used.iloc[i, 10]] = distance
+        
+    sorted_results = sorted(df_results.items(), key=lambda kv: kv[1])
+    
+    return sorted_results
+    
+
+user_input = 'red cherry sour'
+sorted_results = get_recommendations(user_input)
+for i in range(0, 6):
+    print(sorted_results[i][0], ', ', sorted_results[i][1])
