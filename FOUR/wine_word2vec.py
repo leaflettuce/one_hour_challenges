@@ -103,9 +103,6 @@ X_tsne = tsne.fit_transform(X)
 #                              n_components=2, random_state=42).fit_transform(X)
 
 
-# set into ine df
-df_used = df[0:30000]
-
 
 # visualize
 plt.figure(figsize=(10,9))
@@ -115,24 +112,41 @@ plt.title('Wine Review Vocab Scatter (t-sne)')
 ###############
 # Recommender #
 ###############
- 
- # create place holders
-df_used['tsne_x'] = 0
-df_used['tsne_y'] = 0
-vector = []
-# takes in list and returns average vector
-for i in  df_used['desc_clean']:
-    try:
-        i = str(i).split()
-        vector.append(model.wv[i])
-    except KeyError:
-        continue
-        # average and reduce
-   # vector_average = np.mean(vector, axis=0)
-   # for i in vector_average
-    vec_tsne = tsne.fit_transform(vector[1])
-        # write to df
+ # set into ine df
+df_used = df[0:30000]
 
+
+# takes in list and returns reduced vectors
+def get_average_vectors(df_used = df_used):
+     # create place holders
+    df_used['tsne_x'] = 0
+    df_used['tsne_y'] = 0
+    vector = []
+    i = 0
+    loc = -1
+
+    for i in tqdm(desc_list):
+        loc += 1
+        try:
+            vector.append(model.wv[i])
+        except KeyError:
+            try:
+                df_used = df_used.drop(df.index[loc])
+            except KeyError:
+                break
+   
+    # set df_used to proper len
+    df_used = df_used[0:len(vector)]
     
+    # loop through all vectors and average out into df vars
+    for i in tqdm(range(0, len(vector))):
+        vec_tsne = tsne.fit_transform(vector[i])
+            # set to df
+        df_used.iloc[i, 16] = np.mean(vec_tsne[:, 0])
+        df_used.iloc[i, 17] = np.mean(vec_tsne[:, 1])
+    
+    return
+
 
 # get vectors of wine reviews
+get_average_vectors()
