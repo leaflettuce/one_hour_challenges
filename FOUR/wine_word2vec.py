@@ -105,13 +105,34 @@ X_tsne = tsne.fit_transform(X)
 
 # set into ine df
 df_used = df[0:30000]
-df_used['tsne'] = X_tsne[:,0]
-df_used['tsne'] = X_tsne[:,1]
+
 
 # visualize
 plt.figure(figsize=(10,9))
 plt.scatter(X_tsne[:, 0], X_tsne[:, 1], s=3, cmap='Spectral')
+plt.title('Wine Review Vocab Scatter (t-sne)')
 
 ###############
 # Recommender #
 ###############
+ 
+ # create place holders
+df_used['tsne_x'] = 0
+df_used['tsne_y'] = 0
+vector = []
+# takes in list and returns average vector
+for i in  df_used['desc_clean']:
+    try:
+        i = str(i).split()
+        vector.append(model.wv[i])
+    except KeyError:
+        continue
+        # average and reduce
+   # vector_average = np.mean(vector, axis=0)
+   # for i in vector_average
+    vec_tsne = tsne.fit_transform(vector[1])
+        # write to df
+
+    
+
+# get vectors of wine reviews
