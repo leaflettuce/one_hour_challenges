@@ -15,8 +15,8 @@ from tqdm import tqdm
 from gensim.models import Word2Vec 
 
 from sklearn import manifold
-import umap
 import matplotlib.pyplot as plt
+import seaborn as sns
 ##########################
 # import and set up data #
 ##########################
@@ -143,6 +143,15 @@ for i in tqdm(range(1, len(vector))):
     df_used.iloc[i, 15] = np.mean(vec_tsne[:, 1])
 
 
+###########################
+# VIZ SIMILARITY in WINES #
+###########################
+    
+plt.figure(figsize=(10,9))
+sns.lmplot(data=df_used, x='tsne_x', y='tsne_y', hue='variety', 
+                   fit_reg=False, legend=True)
+plt.title('Wine Similarity Based Upon Description')
+
 #######################
 # RECOMMENDER FINALLY #
 #######################
@@ -171,7 +180,7 @@ def similar_products(input_desc, n = 6):
 
 similar_products('fruity')
 
-# testing
+# formatting into reusable function
 
 def get_recommendations(test_input, df_used = df_used):
     test_split = test_input.split(' ')
