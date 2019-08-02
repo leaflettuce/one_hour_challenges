@@ -99,9 +99,11 @@ METHOD:
 	- take given description input and recommend a wine based on it
 	
 RESULTS: 
-	- TBD
+	- word2vec is a powerful tool for identifying similarity between words/objects
+	- was able to create 2-D matrix using cosine similarity to group similar wines based on description
+	- User can input tasting notes they are looking for and code returns a list of top 5 similar tasting wines!
 
-OVERALL: TBD
+OVERALL: Word2Vec can create a very powerful and scalable recommendation system. 
 
-TIME TAKEN: TBD
+TIME TAKEN: 180ish
 ```
