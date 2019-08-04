@@ -109,18 +109,18 @@ TIME TAKEN: 180ish
 ```
 
 
-#### FIVE - Goodreads Data Deep Dive w/ Tableau
+#### FIVE - Mass Shooting Data Deep Dive w/ Tableau
 ```
-GOAL: Can I find any interesting metrics or trends within Goodreads data?
+GOAL: Identify Trends i= Data and Create Story-telling Visual?
 
 METHOD: 
-	- Data obtained from Kaggle dataset: 'Goodreads Books'
+	- Data obtained from Mother Jones' 'Mass Shooting Investigation'
 	- Pull in to Tableau
 	- EDA
-	- Create some useful KPI's
-	- Deep Dive Fantasy Novel Series Trends
-	- Create a dashboard or two
-	- Any big take aways to visualize?
+	- Create metrics?
+	- Deep Dive Shooting trends
+	- Create a Informative dashboard
+	- Finalk Visualization Focus Identified and Created
 	
 RESULTS: 
 	- TBD
