@@ -107,3 +107,25 @@ OVERALL: Word2Vec can create a very powerful and scalable recommendation system.
 
 TIME TAKEN: 180ish
 ```
+
+
+#### FIVE - Goodreads Data Deep Dive w/ Tableau
+```
+GOAL: Can I find any interesting metrics or trends within Goodreads data?
+
+METHOD: 
+	- Data obtained from Kaggle dataset: 'Goodreads Books'
+	- Pull in to Tableau
+	- EDA
+	- Create some useful KPI's
+	- Deep Dive Fantasy Novel Series Trends
+	- Create a dashboard or two
+	- Any big take aways to visualize?
+	
+RESULTS: 
+	- TBD
+
+OVERALL: TBD
+
+TIME TAKEN: TBD
+```
