@@ -107,3 +107,25 @@ OVERALL: Word2Vec can create a very powerful and scalable recommendation system.
 
 TIME TAKEN: 180ish
 ```
+
+
+#### FIVE - Mass Shooting Data Deep Dive w/ Tableau
+```
+GOAL: Identify Trends i= Data and Create Story-telling Visual?
+
+METHOD: 
+	- Data obtained from Mother Jones' 'Mass Shooting Investigation'
+	- Pull in to Tableau
+	- EDA
+	- Create metrics?
+	- Deep Dive Shooting trends
+	- Create a Informative dashboard
+	- Finalk Visualization Focus Identified and Created
+	
+RESULTS: 
+	- TBD
+
+OVERALL: TBD
+
+TIME TAKEN: TBD
+```
