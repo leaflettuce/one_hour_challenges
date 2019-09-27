@@ -120,12 +120,12 @@ METHOD:
 	- Create metrics?
 	- Deep Dive Shooting trends
 	- Create a Informative dashboard
-	- Finalk Visualization Focus Identified and Created
+	- Final Visualization Focus Identified and Created
 	
 RESULTS: 
-	- TBD
+	- Visualized a handful of informative charts on mass shootings, NICS background checks, and gun type relationships.
 
-OVERALL: TBD
+OVERALL: Standard fare Tableau exploration and visualization. Love the tool. This was a tough subject.
 
-TIME TAKEN: TBD
+TIME TAKEN: 120ish
 ```
